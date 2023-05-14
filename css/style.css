@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+a:active {
+    color: white;
+}
+
+a::before {
+    color: blue;
+}
+
+body {
+    background-color: whitesmoke;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+}
+
+::-webkit-scrollbar{
+    display: auto;
+}
+
+/*------------------------------ Users list start  -------------------------*/
+
+
+
+.users-list-app {
+    height: 70vh;
+    width: 30vw;
+    box-shadow: 1px 1px 15px 1px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    padding: 10px;
+    scrollbar-width: none;
+    overflow: hidden;
+}
+
+#user {
+    font-weight: bold;
+}
+
+.wrap-user-info {
+    display: flex;
+    height: 70px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.wrap-user-info span{
+    padding: 5px;
+    background-color: lightgray;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.wrap-user-info div img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    
+}
+
+.btn {
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+
+.wrap-user-info div:last-of-type{
+    margin-left: auto;
+}
+
+
+.users-list-wrap-search{
+    margin-top: 10px;
+    width: 100%;
+    padding: 5px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.users-list-wrap-search input {
+    width: 80%;
+    padding: 3px 8px;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px lightgray solid;
+    outline: none;
+    padding-left: 20px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    height: 100%;
+}
+
+.users-list-wrap-search input::placeholder {
+    color: black;
+    font-weight: normal;
+}
+
+.users-list-wrap-search div:last-of-type {
+    height: 100%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    width: 20%;
+}
+
+.users-list-wrap-search div:last-of-type i {
+    font-size: 40px;
+    cursor: pointer;
+}
+
+
+.users-list-wrap-users {
+    margin-top: 20px;
+    height: 60%;
+    overflow-y: scroll;
+    
+}
+
+.users-list-wrap-users::-webkit-scrollbar {
+    width: 5px;
+    height: 50px;
+}
+
+.users-list-wrap-users::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.users-list-wrap-users::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+
+.wrap-friend {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 5px;
+    position: relative;
+    margin-bottom: 5px;
+    border-top: 3px lightgray solid;
+}
+
+.wrap-friend div img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.wrap-friend-online{
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.users-list-wrap-users div.online {
+    height: 15px;
+    width: 15px;
+    background-color: green;
+    color: green;
+    border-radius: 50%;
+    margin-left: auto;
+
+}
+
+
+.wrap-friend div p:last-of-type  {
+    font-size: 14px;
+    color: darkgray;
+}
+
+/*------------------------------ Users list ends  -------------------------*/
+
+/* ---------- Starts login_page style ---------- */
+
+.app {
+    height: 70vh;
+    width: 30vw;
+    box-shadow: 1px 1px 15px 1px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    scrollbar-width: none;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+
+.wrap-title {
+    background-color: black;
+    height: 20%;
+    width: 100%;
+    display: flex;
+    color: white;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+
+.wrap-title div img {
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.wrap-title div:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    font-style: italic;
+}
+
+.wrap-login-form {
+    height: 65%;
+    width: 100%;
+    
+}
+
+.error-msg {
+    
+    display: none; 
+    /* display flex */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: lightpink;
+    padding: 5px;
+    border-radius: 5px;
+    color: crimson;
+    box-shadow: 0 0 5px 3px pink;
+    margin-bottom: 30px;
+}
+
+.login_form{
+    height: 70%;
+    width: 100%;
+}
+
+.login_form > div {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 3px white;
+
+}
+
+.login_form > div.error {
+    box-shadow: 0 0 3px 3px pink;
+}
+
+.login_form > div.pass {
+    box-shadow: 0 0 3px 3px lightgreen;
+}
+
+.login_form div:first-child{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.login_form div input {
+    height: 50%;
+    background: none;
+    outline: none;
+    border: none;
+    width: 90%;
+    background-color: lightgray;
+    font-family: 'Poppins';
+    font-weight: bold;
+
+}
+
+.login_form div input::placeholder {
+    color: white;
+    font-weight: normal;
+}
+
+
+#btn-login {
+    position: absolute;
+    bottom: 2px;
+    width: 95%;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-left: 10px;
+    margin-top: 15px;
+
+}
+
+
+.texte {
+    position: absolute;
+    bottom: 60px;
+    text-align: center;
+    left: 15px;
+}
+
+
+
+/* ------------ Ends login_page style ------------- */
+
+/* ------------ Starts registration_page style ------------- */
+
+
+.wrap-form-new-user {
+    height: 50%;
+    width: 100%;
+}
+
+form {
+    height: 100%;
+}
+
+.row {
+    height: 40%;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.row:first {
+    margin-bottom: 20px;
+}
+
+.row div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 5px;
+}
+
+.row div input {
+    width: 100%;
+    padding: 20px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    background-color: lightgray;
+    font-weight: bold;
+    box-shadow: 0 0 3px 3px white;
+    font-size: 18px;
+}
+.row div input.invalid {
+    color: red;
+    box-shadow: 0 0 3px 3px pink;
+}
+
+.row div input.valid {
+    color: forestgreen;
+    box-shadow: 0 0 3px 3px lightgreen;
+}
+
+.row div input::placeholder {
+    font-weight: normal;
+    color: white;
+}
+
+#btn-new-user {
+    position: absolute;
+    bottom: 2px;
+    width: 96%;
+    font-size: 20px;
+    letter-spacing: 3px;
+    left: 10px;
+
+}
+
+
+/* ------------ Ends regsitartion_page style ------------- */
+
+/* --------------- Media queries area --------------- */
+
+@media screen and (max-width:900px) {
+    
+    .users-list-app,.app {
+        height: 99vh;
+        width: 99vw;
+    }
+
+    .users-list-wrap-users::-webkit-scrollbar {
+        width: 0;
+    }
+}
+
