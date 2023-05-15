@@ -21,7 +21,23 @@
 
                 if($state = $conn->query($req)){
                     if($state->num_rows == 0){
-                        //qui++++++++++++++++++++++ creare inserimetno
+                        $req = "INSERT INTO users(mail,username,password)
+                        VALUES('$mail','$username','$has_psw')";
+
+                        if($conn->query($req)){
+                            $_SESSION['logged'] = true;
+                            $_SESSION['username'] = $username;
+                            $data = [
+                                "response"=>1,
+                            ];
+                            echo json_encode($data);
+                        }else{
+                            $data = [
+                                "response"=>0,
+                                "message"=>"Problem with last request"
+                            ];
+                            echo json_encode($data);
+                        }
                     }else{
                         $data = [
                             "response"=>0,
@@ -37,21 +53,6 @@
                     echo json_encode($data);
                 }
 
-                $req = "INSERT INTO users(mail,username,password)
-                VALUES('$mail','$username','$psw')";
-
-
-
-                if($conn->query($req)){
-                    $_SESSION['logged'] = true;
-                    $_SESSION
-                }else{
-                    $data = [
-                        "response"=>0,
-                        "message"=>"Problem in our server, try later"
-                    ];
-                    echo json_encode($data);
-                }
             }
         }
     }else {

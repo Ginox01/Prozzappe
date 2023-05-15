@@ -1,4 +1,4 @@
-//CONTINUARE DA QUI!+++
+
 const token = document.getElementById('token').value;
 const errorMsg = document.querySelector('.error-msg');
 const mail = document.getElementById('mail');
@@ -25,6 +25,15 @@ function createNewUser(e){
         }).then(res=>res.json())
         .then(data=>{
             console.log(data);
+            if(data.response == 1){
+                resetForm();
+                window.location.href = "./index.php";
+            }
+            if(data.response == 0){
+                errorMsg.style.display = "flex";
+                errorMsg.innerHTML = data.message;
+                return;
+            }
         })
     }
 }
@@ -84,4 +93,18 @@ function checkPassword(target,confirmField,err){
         confirmField.className = "valid";
         return true;
     }
+}
+
+
+function resetForm(){
+    mail.className = "";
+    username.className = "";
+    psw.className = "";
+    confirmPsw.className = "";
+    mail.value = "";
+    username.value = "";
+    psw.value = "";
+    confirmPsw.value = "";
+    errorMsg.innerHTML = "";
+    errorMsg.style.display = "none";
 }

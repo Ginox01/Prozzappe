@@ -13,8 +13,22 @@ btnLogin.addEventListener('click',loginUser);
 function loginUser(e){
     e.preventDefault();
     if(checkMail(mail,errorMsg) && checkPsw(psw,errorMsg)){
-        console.log('ok');
-        // HERE WILL BE SENT THE DATA TO SERVER FOR THE LOGIN +++++++++++++++++++++++++++++++++++
+        
+        let formData = new FormData;
+        formData.append('mail',mail.value);
+        formData.append('password',psw.value);
+        formData.append('token',token);        
+        
+        fetch("./php/login.php",{
+            method:'POST',
+            header:{'Content-type':'application/json'},
+            body:formData
+        }).then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            
+        })
+        
     }
 }
 

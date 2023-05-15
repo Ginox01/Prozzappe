@@ -2,6 +2,11 @@
 
 <?php 
     session_start();
+
+    if(isset($_SESSION['logged'])){
+        header("location: ./index.php");
+    }
+
     if(!isset($_SESSION['crsf'])){
         $token = random_bytes(16);
         $token = bin2hex($token);
