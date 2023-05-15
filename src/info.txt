@@ -1,1 +1,11 @@
 URL SAMPLE = https://www.youtube.com/watch?v=VnvzxGWiK54
+
+
+DATABASE NAME = zappe;
+
+TABLE users => [
+    id INT(9) PRIMARY KEY AUTO_INCREMENT,
+    mail VARCHAR(50) NOT NULL,
+    username VARCHAR(20) NOT NULL,
+    password VARCHAR(255) NOT NULL
+]

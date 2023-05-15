@@ -33,17 +33,17 @@
                 </div>
                 <div class="row">
                     <div>
-                        <input type="psw" placeholder="Insert your best Password.." id="psw">
+                        <input type="password" placeholder="Insert your best Password.." id="psw">
                     </div>
                     <div>
-                        <input type="psw" placeholder="Confirm password.." id="confirm-psw">
+                        <input type="password" placeholder="Confirm password.." id="confirm-psw">
                     </div>
                 </div>
                 <button type="submit" id="btn-new-user" class="btn">Sign Up!</button>    
             </form>
             
         </div>
-        <p style="text-align: center;">Do you have alredy an account?? <a href="./login_page.php" >login</a> now!</p>
+        <p style="text-align: center;position:absolute;left:25px;bottom:50px">Do you have alredy an account?? <a href="./login_page.php" >login</a> now!</p>
     </section>
 
     <script src="./scripts/registration.js"></script>

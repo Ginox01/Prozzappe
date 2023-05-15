@@ -20,8 +20,9 @@
             <div><h3>Prozzappe</h3></div>
         </div>
         <div class="wrap-login-form">
-            <div><p class="error-msg"> </p></div>
+            
             <h4 style="text-align: center;margin-bottom:15px">Sign in</h4>
+            <div><p class="error-msg"> </p></div>
             <form method="POST" class="login_form">
                 <div class="">
                     <input type="text" id="mail" placeholder="Inser your mail.." required>
