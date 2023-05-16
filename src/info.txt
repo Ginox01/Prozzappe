@@ -11,5 +11,3 @@ TABLE users => [
     img  VARCHAR(400),
     status VARCHAR(20) NOT NULL,
 ]
-
-ELIMINARE TABELLA ANCHE A CASA!!

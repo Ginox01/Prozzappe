@@ -25,9 +25,12 @@
                         if($state = $conn->query($req)){
                             if($state->num_rows == 0){
 
-                                $req = "INSERT INTO users(mail,username,password)
-                                VALUES('$mail','$username','$has_psw')";
-        
+                                $img = "default";
+                                $status = "online";
+
+                                $req = "INSERT INTO users(mail,username,password,img,status)
+                                VALUES('$mail','$username','$has_psw','$img','$status')";
+            
                                 if($conn->query($req)){
                                     $_SESSION['logged'] = true;
                                     $_SESSION['username'] = $username;
