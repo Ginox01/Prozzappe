@@ -30,6 +30,8 @@
         </div>
 
         <div class="users-list-wrap-users">
+
+        
             <div class="wrap-friend">
                 <div><img src="./src/no-img.png"></div>
                 <div>

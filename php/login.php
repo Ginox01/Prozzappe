@@ -17,7 +17,19 @@
                     ];
                     echo json_encode($data);
                 }else{
-                    //DA QUII++++++++ VALIDAZIONE PASSWORD
+                    $user = $state->fetch_array(MYSQLI_ASSOC);
+                    if(password_verify($password,$user['password'])){
+                        $_SESSION['logged'] = true;
+                        $_SESSION['username'] = $user['username'];
+                        $data = ["response"=>1];
+                        echo json_encode($data);
+                    }else{
+                        $data = [
+                            "response"=>0,
+                            "message"=>"The password doesn't match"
+                        ];
+                        echo json_encode($data);
+                    }
                 }
             }else{
                 $data = [

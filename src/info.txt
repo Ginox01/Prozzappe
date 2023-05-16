@@ -7,5 +7,9 @@ TABLE users => [
     id INT(9) PRIMARY KEY AUTO_INCREMENT,
     mail VARCHAR(50) NOT NULL,
     username VARCHAR(20) NOT NULL,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    img  VARCHAR(400),
+    status VARCHAR(20) NOT NULL,
 ]
+
+ELIMINARE TABELLA ANCHE A CASA!!

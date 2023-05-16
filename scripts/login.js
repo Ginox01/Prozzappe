@@ -26,6 +26,15 @@ function loginUser(e){
         }).then(res=>res.json())
         .then(data=>{
             console.log(data);
+            if(data.response == 1){
+                window.location.href = "./index.php";
+            }
+
+            if(data.response == 0){
+                errorMsg.style.display = "flex";
+                errorMsg.innerHTML = data.message;
+                return;
+            }
             
         })
         

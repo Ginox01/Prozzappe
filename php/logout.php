@@ -3,7 +3,8 @@
         session_start();
         $_SESSION = array();
         session_destroy();
-        header("location ../login_page.php");
+        $data = ["response"=>1];
+        echo json_encode($data);
     }else{
         header("location: ../index.php");
     }

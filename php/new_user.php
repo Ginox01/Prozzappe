@@ -21,27 +21,46 @@
 
                 if($state = $conn->query($req)){
                     if($state->num_rows == 0){
-                        $req = "INSERT INTO users(mail,username,password)
-                        VALUES('$mail','$username','$has_psw')";
+                        $req = "SELECT * FROM users WHERE mail='$mail'";
+                        if($state = $conn->query($req)){
+                            if($state->num_rows == 0){
 
-                        if($conn->query($req)){
-                            $_SESSION['logged'] = true;
-                            $_SESSION['username'] = $username;
-                            $data = [
-                                "response"=>1,
-                            ];
-                            echo json_encode($data);
+                                $req = "INSERT INTO users(mail,username,password)
+                                VALUES('$mail','$username','$has_psw')";
+        
+                                if($conn->query($req)){
+                                    $_SESSION['logged'] = true;
+                                    $_SESSION['username'] = $username;
+                                    $data = [
+                                        "response"=>1,
+                                    ];
+                                    echo json_encode($data);
+                                }else{
+                                    $data = [
+                                        "response"=>0,
+                                        "message"=>"Problem with last request"
+                                    ];
+                                    echo json_encode($data);
+                                }
+
+                            }else{
+                                $data = [
+                                    "response"=>0,
+                                    "message"=>"This mail is alredy in use"
+                                ];
+                                echo json_encode($data);
+                            }
                         }else{
                             $data = [
                                 "response"=>0,
-                                "message"=>"Problem with last request"
+                                "message"=>"Problem request 2"
                             ];
                             echo json_encode($data);
                         }
                     }else{
                         $data = [
                             "response"=>0,
-                            "message"=>"This user is alredy taken"
+                            "message"=>"This username is alredy taken"
                         ];
                         echo json_encode($data);
                     }
