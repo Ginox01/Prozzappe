@@ -41,9 +41,23 @@
         </div>
 
     </section>
+        <!-- This section appears when you click the btn image -->
     <section class="wrap-form-image">
         
+        <div class="wrap-img">
+            <img src="<?=$image == "default"?"./src/no-img.png":"" ?>"/>
+            <span id="btn-close-img-form">❌</span>
+        </div>
+        <div id="div-form-img">
+            <h3>Change your picture</h3>
+            <form method="POST" action="change_img.php">
+                <input type="file" placeholder="new img" name="image">
+                <button type="submit" class="btn">CHANGE</button>
+            </form>
+        </div>
     </section>
+    
+
     <script src="./scripts/index.js"></script>
 </body>
 </html>

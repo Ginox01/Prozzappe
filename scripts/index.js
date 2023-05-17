@@ -4,6 +4,8 @@ const btnOpenFormToChangeImage = document.getElementById('btn-open-form-image')
 const btnSearch = document.getElementById('btn-search');
 const textBar = document.getElementById('words');
 const wrapUsers = document.querySelector('.users-list-wrap-users');
+const btnCloseImageForm = document.getElementById('btn-close-img-form');
+const wrapImageForm = document.querySelector('.wrap-form-image');
 
 let msgError = document.querySelector('.error-msg');
 
@@ -120,7 +122,30 @@ function searchUser(e){
 
 
 
+
 btnOpenFormToChangeImage.addEventListener('click',openImageForm)
 function openImageForm(){
-    
+    let i = 0;
+    wrapImageForm.style.display = "block";
+    let interv = setInterval(()=>{
+        wrapImageForm.style.opacity = (i/100);
+        i++
+        if(i == 100){
+            clearInterval(interv);
+        }
+    },2)
+}
+
+btnCloseImageForm.addEventListener('click',closeImageForm);
+function closeImageForm(){
+    let i = 100;
+    let inter = setInterval(()=>{
+        wrapImageForm.style.opacity = (i/100);
+        i--;
+        if(i == 0){
+            clearInterval(inter);
+            wrapImageForm.style.display = "none";
+            
+        }
+    },2)
 }
