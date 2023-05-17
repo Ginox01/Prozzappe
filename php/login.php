@@ -1,4 +1,6 @@
 <?php 
+
+    
     if($_SERVER['REQUEST_METHOD']=="POST"){
         session_start();
         $token = $_POST['token'];
@@ -18,9 +20,18 @@
                     echo json_encode($data);
                 }else{
                     $user = $state->fetch_array(MYSQLI_ASSOC);
+
+                    $req = "UPDATE users SET status = 'online' WHERE mail = '$mail'";
+
+                    $conn->query($req);
+
+                    
+
                     if(password_verify($password,$user['password'])){
                         $_SESSION['logged'] = true;
                         $_SESSION['username'] = $user['username'];
+                        $_SESSION['img'] = $user['img'];
+                        $_SESSION['status'] = $user['status'];
                         $data = ["response"=>1];
                         echo json_encode($data);
                     }else{

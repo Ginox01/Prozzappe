@@ -109,6 +109,8 @@ body {
     align-items: center;
 }
 
+
+
 .users-list-wrap-search input {
     width: 80%;
     padding: 3px 8px;
@@ -146,7 +148,19 @@ body {
     margin-top: 20px;
     height: 60%;
     overflow-y: scroll;
+    /*display block*/
+
     
+}
+
+.users-list-wrap-no-results {
+    margin-top: 20px;
+    height: 60%;
+    overflow: hidden;
+    /*display flex*/
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
 
 .users-list-wrap-users::-webkit-scrollbar {
@@ -165,6 +179,7 @@ body {
 
 
 .wrap-friend {
+    /*display flex*/
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -196,10 +211,33 @@ body {
 
 }
 
+.users-list-wrap-users div.offline {
+    height: 15px;
+    width: 15px;
+    background-color: red;
+    color: red;
+    border-radius: 50%;
+    margin-left: auto;
+
+}
+
 
 .wrap-friend div p:last-of-type  {
     font-size: 14px;
     color: darkgray;
+}
+
+.wrap-form-image {
+    height: 70vh;
+    width: 30vw;
+    box-shadow: 1px 1px 15px 1px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    padding: 10px;
+    scrollbar-width: none;
+    overflow: hidden;
+    background-color: red;
+    z-index: 5;
+    position: absolute;
 }
 
 /*------------------------------ Users list ends  -------------------------*/

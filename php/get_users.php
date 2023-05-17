@@ -7,7 +7,7 @@
     if($state = $conn->query($req)){
         if($state->num_rows == 1){
             $data = [
-                "response"=>1,
+                "response"=>0,
                 "message"=>"No users available"
             ];
             echo json_encode($data);
@@ -21,10 +21,11 @@
                 $tmp = [];
                 $tmp['mail'] = $row['mail'];
                 $tmp['username'] = $row['username'];
-                
-
-                
+                $tmp['img'] = $row['img'];
+                $tmp['status'] = $row['status'];
+                array_push($data['users'],$tmp);
             }
+            echo json_encode($data);
         }
     }else{
         $data = [

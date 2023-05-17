@@ -34,6 +34,8 @@
                                 if($conn->query($req)){
                                     $_SESSION['logged'] = true;
                                     $_SESSION['username'] = $username;
+                                    $_SESSION['img'] = $img;
+                                    $_SESSION['status'] = $status;
                                     $data = [
                                         "response"=>1,
                                     ];
