@@ -6,6 +6,7 @@ const textBar = document.getElementById('words');
 const wrapUsers = document.querySelector('.users-list-wrap-users');
 const btnCloseImageForm = document.getElementById('btn-close-img-form');
 const wrapImageForm = document.querySelector('.wrap-form-image');
+const btnImg = document.getElementById('btn-img');
 
 let msgError = document.querySelector('.error-msg');
 
@@ -75,7 +76,7 @@ function generateUsers(users){
     users.map(user=>{
         let row = `
             <div data-user=${user.username} style=display:${user.username == utente ? "none":"flex"} class="wrap-friend">
-                <div><img src="${user.img == "default" ? "./src/no-img.png":""}"></div>
+                <div><img src="${user.img == "default" ? "./src/no-img.png":"./src/images/"+user.img}"></div>
                 <div>
                     <p data-user="${user.username}">${user.username}</p>
                     <p>Last message</p>
@@ -149,3 +150,4 @@ function closeImageForm(){
         }
     },2)
 }
+

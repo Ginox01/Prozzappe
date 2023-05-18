@@ -7,6 +7,10 @@
     $username = $_SESSION['username'];
     $status = $_SESSION['status'];
     $image = $_SESSION['img'];
+    if(!isset($_SESSION['err-img'])){
+        $_SESSION['err-img'] = "none";
+    }
+    $errImg = $_SESSION['err-img'];
 ?>
 
 <?php require("./src/header.php")?>
@@ -16,7 +20,7 @@
     <section class="users-list-app">
         
         <div class="wrap-user-info">
-            <div><img src="<?= $image == "default" ? "./src/no-img.png":""?>"></div>
+            <div><img src="<?= $image == "default" ? "./src/no-img.png":"./src/images/".$image?>"></div>
             <div>
                 <p id="user"><?=$username?></p>
             </div>
@@ -50,9 +54,10 @@
         </div>
         <div id="div-form-img">
             <h3>Change your picture</h3>
-            <form method="POST" action="change_img.php">
+            <p style="display: <?=$errImg == "none"?"none":""?>;"  class="err-img"><?=$errImg?></p>
+            <form method="POST" action="./php/change_img.php"  enctype="multipart/form-data">
                 <input type="file" placeholder="new img" name="image">
-                <button type="submit" class="btn">CHANGE</button>
+                <button type="submit" id="btn-img" class="btn">CHANGE</button>
             </form>
         </div>
     </section>
