@@ -536,12 +536,17 @@ form {
     width: 30%;
 }
 
-.wrap-chat-user div:last-of-type {
+.wrap-chat-user div.info {
     width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-bottom: 3px;
+    padding-left: 10px;
+}
+
+.wrap-chat-user div.im {
+    padding-top: 10px;
 }
 
 .wrap-chat-user div img {
@@ -552,7 +557,6 @@ form {
 
 .wrap-chat-user h3 {
     color: white;
-    padding-left: 40px;
     font-weight: bold;
     font-size: 20px;
     letter-spacing: 1px;
@@ -574,7 +578,7 @@ form {
     position: absolute;
     bottom: 2px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-30%);
     color: white;
     
 

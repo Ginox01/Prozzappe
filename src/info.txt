@@ -19,5 +19,3 @@ TABLE messages => [
     destinatario VARCHAR(50) NOT NULL,
     message VARCHAR(1000)
 ]
-
-DA CREARE SU PC DI CASA!
