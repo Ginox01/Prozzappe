@@ -78,7 +78,7 @@ function generateUsers(users){
             <div data-user=${user.username} style=display:${user.username == utente ? "none":"flex"} class="wrap-friend">
                 <div><img src="${user.img == "default" ? "./src/no-img.png":"./src/images/"+user.img}"></div>
                 <div>
-                    <p data-user="${user.username}">${user.username}</p>
+                    <p><a class="user-link" href="http://localhost/xx_prozzape/chat_area.php?user=${user.username}">${user.username}</a></p>
                     <p>Last message</p>
                 </div>
                 <div class="wrap-friend-online">

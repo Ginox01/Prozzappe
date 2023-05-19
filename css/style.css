@@ -52,6 +52,12 @@ body {
     font-weight: bold;
 }
 
+.user-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
 .wrap-user-info {
     display: flex;
     height: 70px;
@@ -510,7 +516,7 @@ form {
 
 }
 
-/* start chat area */
+/* ++++++++++ start chat area ++++++++++ */
 
 
 .wrap-chat-user {
@@ -524,6 +530,18 @@ form {
     position: relative;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
+}
+
+.wrap-chat-user div:first {
+    width: 30%;
+}
+
+.wrap-chat-user div:last-of-type {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3px;
 }
 
 .wrap-chat-user div img {
@@ -541,6 +559,15 @@ form {
     
 }
 
+#arrow {
+    position: absolute;
+    left: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 .wrap-chat-user span {
     font-size: 12px;
     font-style: italic;
@@ -549,6 +576,7 @@ form {
     left: 50%;
     transform: translateX(-50%);
     color: white;
+    
 
 }
 
@@ -570,11 +598,68 @@ form {
     display: flex;
     margin: 15px;
     margin-left: auto;
+    border-radius: 10px 10px 0 10px;
 }
 
 .details {
     padding: 8px;
 }
+
+.wrap-chat {
+    height: 70%;
+    width: 100%;
+    overflow: scroll;
+}
+
+.wrap-chat-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.wrap-chat-form form {
+    width: 80%;
+}
+
+
+.wrap-chat-form form input {
+    width: 80%;
+    padding: 4px;
+    font-family: inherit;
+    padding-left: 6px;
+    border: none;
+    outline: none;
+    border-radius: 5px 0px 0px 5px;
+    position: relative;
+    height: 40px;
+
+}
+
+.wrap-chat-form form {
+    display: flex;  
+}
+
+.wrap-chat-form div img {
+    height: 40px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+/* LAST PADDING I DO IT WITH JAVASCRIPT */
+
+.wrap-chat::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
+.wrap-chat-form {
+    width: 100%;
+    background-color: rgb(189, 189, 189);
+    height: 30%;
+}
+
+
 
 /* end char area */
 

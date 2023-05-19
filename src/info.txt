@@ -11,3 +11,13 @@ TABLE users => [
     img  VARCHAR(400),
     status VARCHAR(20) NOT NULL,
 ]
+
+
+TABLE messages => [
+    id INT(9) PRIMARY KEY AUTO_INCREMENT,
+    mittente VARCHAR(50) NOT NULL,
+    destinatario VARCHAR(50) NOT NULL,
+    message VARCHAR(1000)
+]
+
+DA CREARE SU PC DI CASA!
