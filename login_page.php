@@ -12,6 +12,10 @@
         $token = bin2hex($token);
         $_SESSION['crsf'] = $token;
     }
+
+
+    
+    
     
 
 ?>

@@ -3,8 +3,17 @@
     if(!isset($_SESSION['logged'])){
         header("location: ./login_page.php");
     }
-
+    
     $username = $_SESSION['username'];
+
+    
+    
+
+
+    
+
+
+    
     $status = $_SESSION['status'];
     $image = $_SESSION['img'];
     if(!isset($_SESSION['err-img'])){

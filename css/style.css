@@ -19,7 +19,7 @@ a:active {
 a::before {
     color: blue;
 }
-
+html,
 body {
     background-color: whitesmoke;
     height: 100vh;
@@ -675,8 +675,13 @@ form {
 @media screen and (max-width:900px) {
     
     .users-list-app,.app {
-        height: 99vh;
+        height: 90vh;
         width: 99vw;
+    }
+
+    .wrap-form-image {
+        height:100%;
+        width: 100%;
     }
 
     .users-list-wrap-users::-webkit-scrollbar {

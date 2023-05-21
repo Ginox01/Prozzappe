@@ -29,6 +29,7 @@
 
                     if(password_verify($password,$user['password'])){
                         $_SESSION['logged'] = true;
+                        setcookie('active','true',0);
                         $_SESSION['username'] = $user['username'];
                         $_SESSION['img'] = $user['img'];
                         $_SESSION['status'] = $user['status'];

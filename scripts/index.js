@@ -7,8 +7,9 @@ const wrapUsers = document.querySelector('.users-list-wrap-users');
 const btnCloseImageForm = document.getElementById('btn-close-img-form');
 const wrapImageForm = document.querySelector('.wrap-form-image');
 const btnImg = document.getElementById('btn-img');
-
 let msgError = document.querySelector('.error-msg');
+
+let closeBroswer = true;
 
 //GET ALL THE USERS
 
@@ -27,12 +28,27 @@ function displayTheUsers(){
         if(data.response == 1){
             restoreResult();
             wrapUsers.innerHTML = generateUsers(data.users);
+            const usersLink = document.querySelectorAll('.user-link');
+            for(let x=0;x <usersLink.length;x++){
+                usersLink[x].addEventListener('click',()=>{
+                    closeBroswer = false;
+                    setTimeout(()=>{
+                        closeBroswer = true;
+                    },500)
+                })
+            }
 
         }
     })
 }
 
 
+
+ window.addEventListener('beforeunload',()=>{
+     if(closeBroswer){
+         userLogout();
+     }
+ });
 btnLogout.addEventListener('click',userLogout);
 function userLogout(){
     fetch("./php/logout.php",{
@@ -78,7 +94,7 @@ function generateUsers(users){
             <div data-user=${user.username} style=display:${user.username == utente ? "none":"flex"} class="wrap-friend">
                 <div><img src="${user.img == "default" ? "./src/no-img.png":"./src/images/"+user.img}"></div>
                 <div>
-                    <p><a class="user-link" href="http://localhost/xx_prozzape/chat_area.php?user=${user.username}">${user.username}</a></p>
+                    <p><a class="user-link" href="http://localhost/xx_prozzape/chat_area.php?user=${user.username}" >${user.username}</a></p>
                     <p>Last message</p>
                 </div>
                 <div class="wrap-friend-online">
@@ -151,3 +167,9 @@ function closeImageForm(){
     },2)
 }
 
+btnImg.addEventListener('click',(e)=>{
+    closeBroswer = false;
+    setTimeout(()=>{
+        closeBroswer = true
+    },500)
+})

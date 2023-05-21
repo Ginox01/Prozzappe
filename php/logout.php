@@ -12,7 +12,7 @@
         $data = ["response"=>1];
         echo json_encode($data);
     }else{
-        header("location: ../index.php");
+        header("location: ../login_page.php");
     }
 
 ?>

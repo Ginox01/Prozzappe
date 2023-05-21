@@ -4,12 +4,21 @@ const destinatario = document.getElementById('destinatario').value;
 const message = document.getElementById('message');
 const wrapChat = document.querySelector('.wrap-chat');
 
+let closeBroswer = true;
 
 function closeChat(){
+    closeBroswer = false;
     window.location.href = "./index.php";
 }
 
-getTheInfoOfTheDestinatario();
+function clearChat(){
+    wrapChat.innerHTML = "";
+}
+
+const intervallo = setInterval(()=>{
+    getTheInfoOfTheDestinatario();
+},500)
+
 function getTheInfoOfTheDestinatario(){
     let formData = new FormData;
     formData.append('username',destinatario);
@@ -59,6 +68,7 @@ function sentMessage(){
             console.log(data)
         if(data.response == 1){
             message.value = "";
+           
         }
         if(data.response == 0){
             console.log('err');
@@ -67,7 +77,10 @@ function sentMessage(){
     })
 }
 
-displayMessage()
+const interv =  setInterval(() => {
+    displayMessage();
+}, 500);
+
 function displayMessage(){
     let formData = new FormData;
     formData.append('mittente',mittente);
@@ -83,27 +96,12 @@ function displayMessage(){
         console.log(mittente);
         console.log(destinatario);
 
-        //BISOGNA ITERARE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
         if(data.response == 1){
-            let mex = document.createElement('div'); 
-             if(data.chat.mittente == mittente && data.chat.destinatario == destinatario){
-                 console.log('Ginox ha inviato il messaggio!');
-                 mex.setAttribute('class','txt-outcoming');
-                 mex.innerHTML = `
-                     <div class="details">
-                         <p>${data.chat.message}</p>
-                     </div>`;
-             }else if(data.chat[0].mittente == destinatario && data.chat[0].destinatario == mittente){
-                 console.log("Ginox ha ricevuto il messaggio!");
-                 mex.setAttribute('class','txt-incoming');
-                 mex.innerHTML = `
-                     <div class="details">
-                         <p>${data.chat[0].message}</p>
-                     </div>`;
-                
-             }
-             wrapChat.appendChild(mex);
+            
+            clearChat();
+            displayTheChat(data);   
+             
+            
         }else if(data.response == 0){
             window.location.href = "./index.php";
         }
@@ -113,5 +111,45 @@ function displayMessage(){
 
 
 
-
+function displayTheChat(data){
+    data.chat.map(data=>{
+        let mex = document.createElement('div'); 
+             if(data.mittente == mittente && data.destinatario == destinatario){
+                 console.log('Ginox ha inviato il messaggio!');
+                 mex.setAttribute('class','txt-outcoming');
+                 mex.innerHTML = `
+                     <div class="details">
+                         <p>${data.message}</p>
+                     </div>`;
+             }else if(data.mittente == destinatario && data.destinatario == mittente){
+                 console.log("Ginox ha ricevuto il messaggio!");
+                 mex.setAttribute('class','txt-incoming');
+                 mex.innerHTML = `
+                     <div class="details">
+                         <p>${data.message}</p>
+                     </div>`;
+                
+             }
+             wrapChat.appendChild(mex);
             
+    })
+}
+
+function userLogout(){
+    fetch("./php/logout.php",{
+        method:'POST',
+        header:{'Content-Type':'application/json'},
+    }).then(res=>res.json())
+    .then(data=>{
+        if(data.response==1){
+           window.location.href = "./login_page.php";
+        }
+    })
+}
+
+
+window.addEventListener('beforeunload',()=>{
+    if(closeBroswer){
+        userLogout();
+    }
+});
