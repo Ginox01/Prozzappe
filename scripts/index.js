@@ -38,7 +38,10 @@ function displayTheUsers(){
                 })
             }
             let lastMsgs = document.querySelectorAll('.last-msg');
-            //DA QUIIII++++++++++++
+            for(let y=0;y<lastMsgs.length;y++){
+                displayLastMessage(lastMsgs[y].dataset.user,lastMsgs[y]);
+                
+            }
             console.log(lastMsgs);
         }
     })
@@ -114,12 +117,12 @@ function generateUsers(users){
 }
 
 // Get the last message from the chat and display in users list
-function displayLastMessage(mitente,destinatario){
+function displayLastMessage(destinatario,target){
     let formData = new FormData;
     formData.append('mittente',utente);
-    formData.append('destinatario',username);
+    formData.append('destinatario',destinatario);
 
- 
+    let mx = "";
 
     fetch("./php/get_last_mex.php",{
         method:'POST',
@@ -130,11 +133,11 @@ function displayLastMessage(mitente,destinatario){
         
         if(data.response == 1){
             
-            lastMsg.innerHTML = data.message;
+            target.innerHTML = data.message;
         }
     })
 
-    
+        
 
 }
 

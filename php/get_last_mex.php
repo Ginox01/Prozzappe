@@ -17,9 +17,10 @@
                 echo json_encode($data);
             }else{
                 $msg = $state->fetch_array(MYSQLI_ASSOC);
+                (strlen($msg["message"]) > 20 ) ? $mex = substr($msg["message"],0,20) : $mex = $msg["message"];
                 $data = [
                     "response"=>1,
-                    "message"=>$msg['message']
+                    "message"=>$mex
                 ];
                 echo json_encode($data);
             }
