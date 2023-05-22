@@ -33,7 +33,7 @@ function getTheInfoOfTheDestinatario(){
 
         if(data.response == 1){
              wrapChatUser.innerHTML = `
-             <div class="im"><img src="./src/images/${data.user.img}"/></div>
+             <div class="im"><img src="${data.user.img == "default" ? "./src/no-img.png":"./src/images/"+data.user.img}"/></div>
              <div class="info">
                  <p id="arrow">←</p>
                  <h3>${data.user.username}</h3>

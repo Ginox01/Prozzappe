@@ -19,7 +19,7 @@ setInterval(()=>displayTheUsers(),10000);
 function displayTheUsers(){
     fetch("./php/get_users.php").then(res=>res.json())
     .then(data=>{
-        //console.log(data);
+        
         if(data.response == 0){
             setError();
             msgError.innerHTML = data.message;
@@ -37,7 +37,9 @@ function displayTheUsers(){
                     },500)
                 })
             }
-
+            let lastMsgs = document.querySelectorAll('.last-msg');
+            //DA QUIIII++++++++++++
+            console.log(lastMsgs);
         }
     })
 }
@@ -90,12 +92,15 @@ function generateUsers(users){
     let rows = "";
 
     users.map(user=>{
+        
+        
+
         let row = `
             <div data-user=${user.username} style=display:${user.username == utente ? "none":"flex"} class="wrap-friend">
                 <div><img src="${user.img == "default" ? "./src/no-img.png":"./src/images/"+user.img}"></div>
                 <div>
                     <p><a class="user-link" href="http://localhost/xx_prozzape/chat_area.php?user=${user.username}" >${user.username}</a></p>
-                    <p>Last message</p>
+                    <p data-user=${user.username} class="last-msg" ></p>
                 </div>
                 <div class="wrap-friend-online">
                     <div class="${user.status == "online"?"online":"offline"}"></div>
@@ -108,6 +113,30 @@ function generateUsers(users){
     return rows;
 }
 
+// Get the last message from the chat and display in users list
+function displayLastMessage(mitente,destinatario){
+    let formData = new FormData;
+    formData.append('mittente',utente);
+    formData.append('destinatario',username);
+
+ 
+
+    fetch("./php/get_last_mex.php",{
+        method:'POST',
+        header:{'Content-Type':'application/json'},
+        body:formData
+    }).then(res=>res.json())
+    .then(data=>{
+        
+        if(data.response == 1){
+            
+            lastMsg.innerHTML = data.message;
+        }
+    })
+
+    
+
+}
 
 btnSearch.addEventListener('click',activeSearchBar);
 function activeSearchBar(){

@@ -41,7 +41,7 @@
 
         </div>
         <div class="wrap-chat-form">
-            <form>
+            <form action="#">
                 <input type="hidden" id="mittente" value="<?=$you?>">
                 <input type="hidden" id="destinatario" value="<?=$he?>">
                 <input type="text" id="message" placeholder="insert message.."><div><img id="send-message" src="./src/logo.jpg"></div>

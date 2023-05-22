@@ -15,7 +15,8 @@
         }else{
             $data = [
                 "response"=>1,
-                "users"=>[]
+                "users"=>[],
+                "last_msg"
         ];
             while($row = $state->fetch_array(MYSQLI_ASSOC)){
                 $tmp = [];
